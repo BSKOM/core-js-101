@@ -53,10 +53,10 @@ function getFizzBuzz(num) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  if (n === 0) return 1;
+  return (n * getFactorial(n - 1));
 }
-
 
 /**
  * Returns the sum of integer numbers between n1 and n2 (inclusive).
@@ -129,10 +129,12 @@ function isTriangle(a, b, c) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
+function doRectanglesOverlap(rect1, rect2) {
+  return !(rect2.left > (rect1.left + rect1.width)
+  || (rect2.left + rect2.width) < rect1.left
+  || rect2.top > (rect1.top + rect1.height)
+  || (rect2.top + rect2.height) < rect1.top);
 }
-
 
 /**
  * Returns true, if point lies inside the circle, otherwise false.
@@ -209,10 +211,11 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  const s = isStartIncluded ? '[' : '(';
+  const e = isEndIncluded ? ']' : ')';
+  return `${s}${a < b ? a : b}, ${a < b ? b : a}${e}`;
 }
-
 
 /**
  * Reverse the specified string (put all chars in reverse order)
